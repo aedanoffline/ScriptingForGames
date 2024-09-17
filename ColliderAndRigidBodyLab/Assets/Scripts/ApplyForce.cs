@@ -6,10 +6,12 @@ using UnityEngine;
 public class ApplyForce : MonoBehaviour
 {
     private Rigidbody rb;
+    public int force;
     private void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.right * 500);
+        rb.AddForce(Vector3.right * force);
     }
 
     void OnCollisionEnter(Collision collision)
