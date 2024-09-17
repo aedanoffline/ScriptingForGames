@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CollisionReactions : MonoBehaviour
 {
+    private AudioSource audioSource;
+    
     // Collision detection
     void OnCollisionEnter(Collision other)
     {
@@ -18,6 +20,9 @@ public class CollisionReactions : MonoBehaviour
                 Mathf.Clamp01(currentColor.b - 0.1f)
             );;
             GetComponent<Renderer>().material.color = currentColor;
+            
+            audioSource = GetComponent<AudioSource>();
+            audioSource.Play();
         }
         
     }
