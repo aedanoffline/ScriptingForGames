@@ -1244,8 +1244,8 @@ GameObject:
   m_Component:
   - component: {fileID: 806256867}
   - component: {fileID: 806256869}
-  - component: {fileID: 806256868}
   - component: {fileID: 806256870}
+  - component: {fileID: 806256871}
   m_Layer: 0
   m_Name: CharacterArt
   m_TagString: Untagged
@@ -1261,38 +1261,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806256866}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -0.56, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1718246714}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &806256868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806256866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9914d55c3075a4b14a80c1204e72e335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key1Event:
-    m_PersistentCalls:
-      m_Calls: []
-  key2Event:
-    m_PersistentCalls:
-      m_Calls: []
-  keyOffEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  key1: 276
-  key2: 275
-  direction1: 0
-  direction2: 180
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!212 &806256869
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1354,20 +1329,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 806256866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9914d55c3075a4b14a80c1204e72e335, type: 3}
+  m_Script: {fileID: 11500000, guid: 49f6c81e2ef22984d91f52fbb77d1cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key1Event:
-    m_PersistentCalls:
-      m_Calls: []
-  key2Event:
-    m_PersistentCalls:
-      m_Calls: []
-  keyOffEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  key1: 97
-  key2: 100
+  key1: 275
+  key2: 276
+  direction1: 0
+  direction2: 180
+--- !u!114 &806256871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806256866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f6c81e2ef22984d91f52fbb77d1cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key1: 100
+  key2: 97
   direction1: 0
   direction2: 180
 --- !u!1 &884773767
