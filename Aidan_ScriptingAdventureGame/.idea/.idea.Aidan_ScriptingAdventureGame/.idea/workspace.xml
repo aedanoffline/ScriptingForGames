@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59744672-0c4f-42db-885c-3a0a0b581ead" name="Changes" comment="" />
+    <list default="true" id="59744672-0c4f-42db-885c-3a0a0b581ead" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Aidan_ScriptingAdventureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Aidan_ScriptingAdventureGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SimpleCharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SimpleCharacterController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +85,7 @@
       <updated>1727743376215</updated>
       <workItem from="1727743377903" duration="26000" />
       <workItem from="1727745912416" duration="229000" />
-      <workItem from="1727746153729" duration="4285000" />
+      <workItem from="1727746153729" duration="10153000" />
     </task>
     <servers />
   </component>
