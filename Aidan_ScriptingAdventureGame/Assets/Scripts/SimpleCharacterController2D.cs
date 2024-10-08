@@ -29,7 +29,7 @@ public class SimpleCharacterController2D : MonoBehaviour
         MoveCharacter();
         ApplyGravity();
         bool isGrounded = IsGrounded();
-        Debug.Log("Is Grounded: " + isGrounded);
+        //Debug.Log("Is Grounded: " + isGrounded);
     }
 
     private void MoveCharacter()
