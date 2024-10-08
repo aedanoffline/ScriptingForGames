@@ -708,18 +708,20 @@ MonoBehaviour:
   triggerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 1089615106}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  audioSource: {fileID: 1089615106}
+  soundOffset: 0.03
 --- !u!65 &1089615103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -751,8 +753,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: a888c3e4dc5e1a444a4a87c5d3c187b1, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -11786,10 +11788,10 @@ PrefabInstance:
       addedObject: {fileID: 1089615103}
     - targetCorrespondingSourceObject: {fileID: 1214041373184846067, guid: 297782afb1073fb4684b21153623e04f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1089615102}
+      addedObject: {fileID: 1089615106}
     - targetCorrespondingSourceObject: {fileID: 1214041373184846067, guid: 297782afb1073fb4684b21153623e04f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1089615106}
+      addedObject: {fileID: 1089615102}
   m_SourcePrefab: {fileID: 100100000, guid: 297782afb1073fb4684b21153623e04f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
