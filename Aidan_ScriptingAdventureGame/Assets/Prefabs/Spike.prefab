@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4400188946101170021}
   - component: {fileID: 8273631044880327381}
   - component: {fileID: 3598758277490676746}
-  - component: {fileID: 7405437065724434689}
+  - component: {fileID: -2220650881743473189}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Untagged
@@ -204,7 +204,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7405437065724434689
+--- !u!114 &-2220650881743473189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1958335088980594791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebaa64d5e6feb34dbabfcde6f338c1c, type: 3}
+  m_Script: {fileID: 11500000, guid: e5e31838d3405314491297f07cbea086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triggerEvent:
@@ -231,16 +231,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 11400000, guid: bfdb82cd6de3d8145bdfe9f868f952e4, type: 2}
+        m_TargetAssemblyTypeName: SimpleFloatData, Assembly-CSharp
+        m_MethodName: UpdateValue
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: HitTrigger
+          m_FloatArgument: -0.1
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   audioSource: {fileID: 3598758277490676746}
