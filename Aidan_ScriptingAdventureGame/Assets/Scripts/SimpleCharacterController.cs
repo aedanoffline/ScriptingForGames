@@ -8,16 +8,19 @@ public class SimpleCharacterController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 0.5f;
     public float gravity = -9.81f;
-
+    
+    private PlayerEventHandler eventHandler;
     private CharacterController controller;
     private Transform thisTransform;
     private Vector3 movementVector = Vector3.zero;
-    private Vector3 velocity;
+    private float staminaMinimum = 0.05f;
+    //private Vector3 velocity;
 
     private void Start()
     {
         // Establishes component references
         controller = GetComponent<CharacterController>();
+        eventHandler = GetComponentInChildren<PlayerEventHandler>();
         thisTransform = transform;
     }
 
@@ -32,16 +35,20 @@ public class SimpleCharacterController : MonoBehaviour
     private void MoveCharacter()
     {
         // Assigns the X of the vector to the horizontal input axis
-        movementVector.x = Input.GetAxis("Horizontal");
+        movementVector.x = Input.GetAxis("Horizontal") * moveSpeed;
         // Multiplies this input by a factor of moveSpeed (defined above)
-        movementVector *= (moveSpeed * Time.deltaTime);
+        //movementVector.x *= (moveSpeed * Time.deltaTime);
         // Applies this newly updated vector to the character controller's move function
-        controller.Move(movementVector);
+        //controller.Move(movementVector);
         
         // Jumping
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            //Debug.Log("I'm grounded");
+            if (eventHandler.staminaData.value > staminaMinimum)
+            {
+                movementVector.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            }
         }
     }
 
@@ -50,18 +57,18 @@ public class SimpleCharacterController : MonoBehaviour
         // Apply gravity when not grounded
         if (!controller.isGrounded)
         {
-            velocity.y += gravity * Time.deltaTime;
+            movementVector.y += gravity * Time.deltaTime;
         }
         else
         {
             // Keep pushing slightly to ensure grounding
-            velocity.y += (gravity / 10) * Time.deltaTime;
+            movementVector.y += (gravity / 100) * Time.deltaTime;
             //Debug.Log("I'm grounded!");
             //velocity.y = 0f;
         }
         
         // Apply the velocity to the controller
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(movementVector * Time.deltaTime);
     }
 
 private void KeepCharacterOnXAxis()

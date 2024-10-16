@@ -5,11 +5,14 @@ using UnityEngine;
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
+    public PlayerEventHandler eventHandler;
     
     private void Start()
     {
         // I'm assuming this calls up the animator component
         animator = GetComponent<Animator>();
+        eventHandler = FindObjectOfType<PlayerEventHandler>();
+        //eventHandler = GetComponent<PlayerEventHandler>();
     }
 
     private void Update()
@@ -30,7 +33,7 @@ public class CharacterAnimationController : MonoBehaviour
         }
         
         //Jump
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && eventHandler.staminaData.value > 0)
         {
             animator.SetTrigger("JumpTrigger");
         }
