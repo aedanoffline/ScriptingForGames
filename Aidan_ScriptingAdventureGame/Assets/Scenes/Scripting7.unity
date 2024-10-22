@@ -1034,6 +1034,7 @@ MonoBehaviour:
         m_CallState: 2
   staminaData: {fileID: 11400000, guid: 119a0873a957f4848ba9a03f51492489, type: 2}
   controller: {fileID: 1718246713}
+  minStamina: 0.2
 --- !u!4 &982818546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5117842452362230842, guid: 741010f056bffa74bb74ba22ffba6d78, type: 3}

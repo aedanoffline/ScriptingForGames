@@ -13,7 +13,7 @@ public class SimpleCharacterController : MonoBehaviour
     private CharacterController controller;
     private Transform thisTransform;
     private Vector3 movementVector = Vector3.zero;
-    private float staminaMinimum = 0.05f;
+    //private double staminaMinimum = 0.2;
     //private Vector3 velocity;
 
     private void Start()
@@ -30,9 +30,10 @@ public class SimpleCharacterController : MonoBehaviour
         MoveCharacter();
         KeepCharacterOnXAxis();
         ApplyGravity();
+        eventHandler.RestCheck();
     }
     
-    private void MoveCharacter()
+    public void MoveCharacter()
     {
         // Assigns the X of the vector to the horizontal input axis
         movementVector.x = Input.GetAxis("Horizontal") * moveSpeed;
@@ -42,17 +43,15 @@ public class SimpleCharacterController : MonoBehaviour
         //controller.Move(movementVector);
         
         // Jumping
-        if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        if (Input.GetButtonDown("Jump") && eventHandler.staminaData.value > eventHandler.minStamina && controller.isGrounded)
         {
             //Debug.Log("I'm grounded");
-            if (eventHandler.staminaData.value > staminaMinimum)
-            {
-                movementVector.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            }
+            movementVector.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            eventHandler.JumpCheck();
         }
     }
 
-    private void ApplyGravity()
+    public void ApplyGravity()
     {
         // Apply gravity when not grounded
         if (!controller.isGrounded)
@@ -71,11 +70,11 @@ public class SimpleCharacterController : MonoBehaviour
         controller.Move(movementVector * Time.deltaTime);
     }
 
-private void KeepCharacterOnXAxis()
-   {
+    public void KeepCharacterOnXAxis()
+    {
        // Assigns "0" to the transform properties of the script parent
        var currentPosition = thisTransform.position;
        currentPosition.z = 0f;
        thisTransform.position = currentPosition;
-   }
+    }
 }

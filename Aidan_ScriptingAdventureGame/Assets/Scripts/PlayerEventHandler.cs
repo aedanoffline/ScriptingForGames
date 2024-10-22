@@ -7,30 +7,33 @@ public class PlayerEventHandler : MonoBehaviour
     public UnityEvent staminaEvent;
     public UnityEvent restEvent;
     public SimpleFloatData staminaData;
+    public CharacterController controller;
     private float restInterval = 0.08f;
     private float timer;
-    public CharacterController controller;
+    public float minStamina = 0.2f;
+    
+    //public SimpleCharacterController characterController;
 
     /*private void Start()
     {
-        controller.GetComponentInParent<CharacterController>();
+        characterController.GetComponentInParent<SimpleCharacterController>();
     }*/
 
-    private void Update()
+    /*private void Update()
     {
         JumpCheck();
         RestCheck();
-    }
+    }*/
 
-    private void JumpCheck()
+    public void JumpCheck()
     {
-        if (Input.GetButtonDown("Jump") && staminaData.value > 0 && controller.isGrounded)
+        if (Input.GetButtonDown("Jump") && staminaData.value > minStamina && controller.isGrounded)
         {
             staminaEvent.Invoke();
         }
     }
 
-    private void RestCheck()
+    public void RestCheck()
     {
         timer += Time.deltaTime;
         

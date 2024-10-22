@@ -33,7 +33,7 @@ public class CharacterAnimationController : MonoBehaviour
         }
         
         //Jump
-        if (Input.GetButtonDown("Jump") && eventHandler.staminaData.value > 0)
+        if (Input.GetButtonDown("Jump") && eventHandler.staminaData.value > eventHandler.minStamina)
         {
             animator.SetTrigger("JumpTrigger");
         }
