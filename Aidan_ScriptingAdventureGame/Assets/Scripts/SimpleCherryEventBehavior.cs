@@ -1,16 +1,47 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class SimpleCherryEventBehaviour : MonoBehaviour
 {
     public UnityEvent triggerEvent;
-    
+    private bool alreadyActivated = false;
+    private GameObject scoreObj;
+    private Animator scoreAnimator;
+
+    private void Start()
+    {
+        scoreObj = GameObject.FindGameObjectWithTag("ScoreTag");
+        scoreAnimator = scoreObj.GetComponent<Animator>();
+    }
+
+    private void CollectCherry()
+    {
+        // Start a coroutine to wait for the animation to finish
+        StartCoroutine(DestroyCherryAfterAnimation());
+    }
+
+    private System.Collections.IEnumerator DestroyCherryAfterAnimation()
+    {
+        float animationDuration = 0.5f;
+        
+        // Wait for the duration of the animation
+        yield return new WaitForSeconds(animationDuration);
+
+        // Destroy the coin object
+        Destroy(gameObject);
+    }
     
     private void OnTriggerEnter(Collider other)
     {
-        triggerEvent.Invoke();
-        Destroy(gameObject);
+        //animator.SetTrigger("CherryCollected");
+        //Destroy(gameObject);
+        if (!alreadyActivated)
+        {
+            alreadyActivated = true;
+            triggerEvent.Invoke();
+        }
+        CollectCherry();
+        scoreAnimator.SetTrigger("ScoreShake");
     }
 }
