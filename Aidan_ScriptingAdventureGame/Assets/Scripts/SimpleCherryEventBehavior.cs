@@ -39,9 +39,9 @@ public class SimpleCherryEventBehaviour : MonoBehaviour
         if (!alreadyActivated)
         {
             alreadyActivated = true;
+            scoreAnimator.SetTrigger("ScoreShake");
             triggerEvent.Invoke();
         }
         CollectCherry();
-        scoreAnimator.SetTrigger("ScoreShake");
     }
 }
