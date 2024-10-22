@@ -21,7 +21,7 @@ public class SpikeTrigger : MonoBehaviour
             triggerEvent.Invoke();
             playerAnimator = other.GetComponentInChildren<Animator>();
             playerAnimator.SetTrigger("HitTrigger");
-            Debug.Log("It's working...");
+            //Debug.Log("It's working...");
         }
     }       
 }

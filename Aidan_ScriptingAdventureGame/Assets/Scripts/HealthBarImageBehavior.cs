@@ -20,4 +20,9 @@ public class HealthBarImageBehavior : MonoBehaviour
     {
         imageObj.rectTransform.sizeDelta = new Vector2(dataObj.value * healthScaler, rectTransform.sizeDelta.y);
     }
+    
+    /*public void UpdateWithFloatData()
+    {
+        imageObj.rectTransform.sizeDelta = new Vector2(dataObj.value * healthScaler, rectTransform.sizeDelta.y);
+    }*/
 }
