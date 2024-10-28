@@ -8,11 +8,13 @@ public class SimpleCherryEventBehaviour : MonoBehaviour
     private bool alreadyActivated = false;
     private GameObject scoreObj;
     private Animator scoreAnimator;
+    private AudioSource itemCollect;
 
     private void Start()
     {
         scoreObj = GameObject.FindGameObjectWithTag("ScoreTag");
         scoreAnimator = scoreObj.GetComponent<Animator>();
+        itemCollect = GetComponent<AudioSource>();
     }
 
     private void CollectCherry()
@@ -41,6 +43,7 @@ public class SimpleCherryEventBehaviour : MonoBehaviour
             alreadyActivated = true;
             scoreAnimator.SetTrigger("ScoreShake");
             triggerEvent.Invoke();
+            itemCollect.Play();
         }
         CollectCherry();
     }

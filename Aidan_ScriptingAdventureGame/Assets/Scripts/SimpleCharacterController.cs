@@ -13,6 +13,12 @@ public class SimpleCharacterController : MonoBehaviour
     private CharacterController controller;
     private Transform thisTransform;
     private Vector3 movementVector = Vector3.zero;
+
+    // Animation Variables
+    private AudioSource[] audioSources;
+    private bool walkCheck;
+    private bool groundCheck;
+    
     //private double staminaMinimum = 0.2;
     //private Vector3 velocity;
 
@@ -21,6 +27,7 @@ public class SimpleCharacterController : MonoBehaviour
         // Establishes component references
         controller = GetComponent<CharacterController>();
         eventHandler = GetComponentInChildren<PlayerEventHandler>();
+        audioSources = GetComponents<AudioSource>();
         thisTransform = transform;
     }
 
@@ -41,6 +48,33 @@ public class SimpleCharacterController : MonoBehaviour
         //movementVector.x *= (moveSpeed * Time.deltaTime);
         // Applies this newly updated vector to the character controller's move function
         //controller.Move(movementVector);
+
+        //Sound Checker & Player
+        if (movementVector.x != 0f && !walkCheck)
+        {
+            walkCheck = true;
+            audioSources[0].Play();
+        }
+        else if (movementVector.x == 0f)
+        {
+            audioSources[0].Stop();
+            walkCheck = false;
+        }
+        
+        if (!controller.isGrounded)
+        {
+            audioSources[0].Stop();
+            groundCheck = true;
+        }
+        else if (controller.isGrounded && groundCheck)
+        {
+            groundCheck = false;
+            audioSources[2].Play();
+            if (walkCheck)
+            {
+                walkCheck = false;
+            }
+        }
         
         // Jumping
         if (Input.GetButtonDown("Jump") && eventHandler.staminaData.value > eventHandler.minStamina && controller.isGrounded)
@@ -48,6 +82,7 @@ public class SimpleCharacterController : MonoBehaviour
             //Debug.Log("I'm grounded");
             movementVector.y = Mathf.Sqrt(jumpForce * -2f * gravity);
             eventHandler.JumpCheck();
+            audioSources[1].Play();
         }
     }
 
