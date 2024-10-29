@@ -17,7 +17,7 @@ public class SimpleCharacterController : MonoBehaviour
     // Animation Variables
     private AudioSource[] audioSources;
     private bool walkCheck;
-    private bool groundCheck;
+    private bool groundCheck = true;
     
     //private double staminaMinimum = 0.2;
     //private Vector3 velocity;
@@ -50,28 +50,33 @@ public class SimpleCharacterController : MonoBehaviour
         //controller.Move(movementVector);
 
         //Sound Checker & Player
-        if (movementVector.x != 0f && !walkCheck)
+        if (movementVector.x != 0f && !walkCheck) // If the player begins walking from a stationary position
         {
+            // Plays the sound only once by flipping the walk bool
             walkCheck = true;
             audioSources[0].Play();
         }
-        else if (movementVector.x == 0f)
+        else if (movementVector.x == 0f) // If the player isn't moving horizontally
         {
+            // Stops the sound and flips the walk bool back to an available state
             audioSources[0].Stop();
             walkCheck = false;
         }
         
-        if (!controller.isGrounded)
+        if (!controller.isGrounded) // If the player is in the air
         {
+            // Stop the walk sound and set the ground bool to false
             audioSources[0].Stop();
-            groundCheck = true;
-        }
-        else if (controller.isGrounded && groundCheck)
-        {
             groundCheck = false;
+        }
+        else if (controller.isGrounded && !groundCheck) // If the player just landed from a jump or a fall
+        {
+            // Flip the ground bool so that this if statement can only trigger once
+            groundCheck = true;
             audioSources[2].Play();
-            if (walkCheck)
+            if (walkCheck) // If the player just landed and is still holding "A" or "D"
             {
+                // Flip the walk bool back to an available state so that the walk sound can trigger again after landing
                 walkCheck = false;
             }
         }
