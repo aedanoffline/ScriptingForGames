@@ -44,7 +44,7 @@ public class PlayerEventHandler : MonoBehaviour
 
         if (NoKeyboardInput())
         {
-            if (staminaData.value <= 1)
+            if (staminaData.value < 100)
             {
                 if (timer >= restInterval)
                 {

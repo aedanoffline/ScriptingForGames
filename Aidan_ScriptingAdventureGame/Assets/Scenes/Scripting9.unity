@@ -1954,7 +1954,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: -0.2
+          m_FloatArgument: -20
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1969,13 +1969,13 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.01
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   staminaData: {fileID: 11400000, guid: 119a0873a957f4848ba9a03f51492489, type: 2}
   controller: {fileID: 1718246713}
-  minStamina: 0.2
+  minStamina: 20
 --- !u!1001 &825633342
 PrefabInstance:
   m_ObjectHideFlags: 0

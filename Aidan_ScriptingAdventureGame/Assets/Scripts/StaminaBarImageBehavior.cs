@@ -7,17 +7,18 @@ public class StaminaBarImageBehavior : MonoBehaviour
     private Image imageObj;
     private RectTransform rectTransform;
     public SimpleFloatData dataObj;
-    private float healthScaler = 250f;
+    private float staminaScaler;
     
     private void Start()
     {
         imageObj = GetComponent<Image>();
         rectTransform = GetComponent<RectTransform>();
-        dataObj.SetValue(1f);
+        staminaScaler = rectTransform.sizeDelta.x;
+        dataObj.SetValue(100f);
     }
     
     public void Update()
     {
-        imageObj.rectTransform.sizeDelta = new Vector2(dataObj.value * healthScaler, rectTransform.sizeDelta.y);
+        imageObj.rectTransform.sizeDelta = new Vector2((dataObj.value / 100f) * staminaScaler, rectTransform.sizeDelta.y);
     }
 }
