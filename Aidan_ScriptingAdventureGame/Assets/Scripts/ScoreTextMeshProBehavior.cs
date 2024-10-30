@@ -27,7 +27,7 @@ public class ScoreTextMeshProBehavior : MonoBehaviour
         animator.SetTrigger("ScoreShake");
     }*/
     
-    void Update()
+    private void Update()
     {
         currentScore = dataObj.value.ToString(CultureInfo.InvariantCulture);
         textObj.text = "Score: " + currentScore;
