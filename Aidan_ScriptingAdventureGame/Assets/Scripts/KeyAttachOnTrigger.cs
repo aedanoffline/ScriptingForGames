@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class AttachOnTrigger : MonoBehaviour
+public class KeyAttachOnTrigger : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
