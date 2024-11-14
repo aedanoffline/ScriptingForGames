@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Collider))]
 public class AttachOnTrigger : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
