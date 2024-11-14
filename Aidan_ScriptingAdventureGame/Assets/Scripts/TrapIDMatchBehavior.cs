@@ -27,7 +27,7 @@ public class TrapIDMatchBehavior : MonoBehaviour
             matchEvent.Invoke();
             isActivated = false;
             animator.SetTrigger("KeyMatchTrigger");
-            Debug.Log("Matched ID: " + ExpectingId);
+            //Debug.Log("Matched ID: " + ExpectingId);
         }
         else
         {
@@ -37,7 +37,7 @@ public class TrapIDMatchBehavior : MonoBehaviour
                 playerAnimator = other.GetComponentInChildren<Animator>();
                 playerAnimator.SetTrigger("HitTrigger");
             }
-            Debug.Log("No Match: " + ExpectingId);
+            //Debug.Log("No Match: " + ExpectingId);
         }
     }
 }
