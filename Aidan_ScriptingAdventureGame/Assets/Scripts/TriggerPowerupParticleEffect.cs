@@ -21,7 +21,6 @@ public class TriggerPowerupParticleEffect : MonoBehaviour
         {
             triggered = true;
             StartCoroutine(EmitParticlesCoroutine());
-            
         }
     }
 
