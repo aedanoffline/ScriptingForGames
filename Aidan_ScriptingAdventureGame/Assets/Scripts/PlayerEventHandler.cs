@@ -7,6 +7,7 @@ public class PlayerEventHandler : MonoBehaviour
     public UnityEvent staminaEvent;
     public UnityEvent restEvent;
     public SimpleFloatData staminaData;
+    public SimpleFloatData healthData;
     public CharacterController controller;
     private float restInterval = 0.08f;
     private float timer;

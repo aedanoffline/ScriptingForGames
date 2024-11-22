@@ -13,6 +13,9 @@ public class SimpleCharacterController : MonoBehaviour
     private CharacterController controller;
     private Transform thisTransform;
     private Vector3 movementVector = Vector3.zero;
+    private bool locked;
+    private Vector3 lockedPosition;
+    private SpriteRenderer spriteRenderer;
 
     // Animation Variables
     private AudioSource[] audioSources;
@@ -38,6 +41,22 @@ public class SimpleCharacterController : MonoBehaviour
         KeepCharacterOnXAxis();
         ApplyGravity();
         eventHandler.RestCheck();
+        DeathCheck();
+    }
+
+    private void DeathCheck()
+    {
+        if (eventHandler.healthData.value <= 0)
+        {
+            if (!locked)
+            {
+                locked = true;
+                spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+                lockedPosition = thisTransform.position;
+            }
+            spriteRenderer.enabled = false;
+            transform.position = lockedPosition;
+        }
     }
     
     public void MoveCharacter()

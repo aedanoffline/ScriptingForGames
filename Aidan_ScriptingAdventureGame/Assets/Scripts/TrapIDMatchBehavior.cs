@@ -10,7 +10,7 @@ public class TrapIDMatchBehavior : MonoBehaviour
     public Id ExpectingId;
     public UnityEvent matchEvent, noMatchEvent;
     private Animator animator;
-    private bool isActivated = true;
+    public bool isActivated = true;
     private Animator playerAnimator;
 
     private void Start()
