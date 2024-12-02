@@ -17,7 +17,10 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void Update()
     {
-        HandleAnimations();
+        if (eventHandler != null)
+        {
+            HandleAnimations();
+        }
     }
     
     private void HandleAnimations()

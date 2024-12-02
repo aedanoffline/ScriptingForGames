@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Collider))]
 public class TrapIDMatchBehavior : MonoBehaviour
 {
     public Id ExpectingId;
@@ -22,9 +22,10 @@ public class TrapIDMatchBehavior : MonoBehaviour
     {
         var otherID = other.GetComponent<SimpleIDBehavior>();
             
-        if (otherID != null && otherID.id == ExpectingId)
+        if (otherID != null && otherID.id == ExpectingId && isActivated)
         {
             matchEvent.Invoke();
+            Destroy(other.gameObject);
             isActivated = false;
             animator.SetTrigger("KeyMatchTrigger");
             //Debug.Log("Matched ID: " + ExpectingId);

@@ -8,6 +8,7 @@ public class SimpleCharacterController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 0.5f;
     public float gravity = -9.81f;
+    public GameObject deathScreen;
     
     private PlayerEventHandler eventHandler;
     private CharacterController controller;
@@ -56,6 +57,11 @@ public class SimpleCharacterController : MonoBehaviour
             }
             spriteRenderer.enabled = false;
             transform.position = lockedPosition;
+            foreach (AudioSource a in audioSources)
+            {
+                a.volume = 0f;
+            }
+            deathScreen.SetActive(true);
         }
     }
     
